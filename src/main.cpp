@@ -41,7 +41,14 @@ int main(){
         curque = all_videos;
         goto current_queue; break;
         case 3:
+        cout << "============================" << endl;
         history.showHistory();
+        cout << "============================" << endl;
+        cout << "1. Back to main menu" << endl;
+        switch (c){
+        case 1:
+        goto main_menu; break;
+        }
     }
 
     current_queue:
