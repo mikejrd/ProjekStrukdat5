@@ -1,7 +1,7 @@
 // #include"../lib/video.h"
 #include"../lib/csvio.h"
 // #include"../lib/queue.h"
-// #include"../lib/history.h"
+#include"../lib/history.h"
 #include<map>
 #include<iostream>
 using namespace std;
@@ -23,6 +23,8 @@ int main(){
     //user input
     int c; // case
     string word;
+    //history
+    stackHistory history;
 
     load(all_videos, "new");
 
@@ -38,6 +40,8 @@ int main(){
         case 1:
         curque = all_videos;
         goto current_queue; break;
+        case 3:
+        history.showHistory();
     }
 
     current_queue:

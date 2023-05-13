@@ -4,13 +4,14 @@
 #include <string>
 using namespace std;
 
-class stack{
+class stackHistory{
     private:
         int top;
         int size;
         string *arr;
+        
     public:
-    stack(){
+    stackHistory(){
         top = -1;
         size = 0;
         arr = new string[size];
@@ -38,12 +39,12 @@ class stack{
     void showHistory(){
         if (is_empty())
         {
+            cout << "History is empty" << endl;
+        }
+        else{
             for(int i = 0; i < size; i++){
                 cout << i+1 << ". " << arr[i] << endl;
             }
-        }
-        else{
-            cout << "History is empty" << endl;
         }
     }
 };
