@@ -28,38 +28,42 @@ int main(){
 
     load(all_videos, "new");
 
-    main_menu:
-    cout << "1. Browse all videos" << endl;
-    cout << "2. Browse Playlists" << endl;
-    cout << "3. Browse History" << endl;
-    cout << "4. Exit" << endl << endl;
-    cout << "Enter your choiche..." << endl;
-    cin >> c;
+    main_menu:{
+        cout << "1. Browse all videos" << endl;
+        cout << "2. Browse Playlists" << endl;
+        cout << "3. Browse History" << endl;
+        cout << "4. Exit" << endl << endl;
+        cout << "Enter your choiche..." << endl;
+        cin >> c;
 
-    switch(c){
-        case 1:
-        curque = all_videos;
-        goto current_queue; break;
-        case 3:
-        cout << "============================" << endl;
-        history.showHistory();
-        cout << "============================" << endl;
-        cout << "1. Back to main menu" << endl;
-        switch (c){
-        case 1:
-        goto main_menu; break;
+        switch(c){
+            case 1:
+            curque = all_videos;
+            goto current_queue; break;
+            case 3:
+            cout << "============================" << endl;
+            history.showHistory();
+            cout << "============================" << endl;
+            cout << "1. Back to main menu" << endl;
+            switch (c){
+            case 1:
+            goto main_menu; break;
+            }
         }
     }
 
-    current_queue:
-    curque.display();
-    cout << "0. Back to main menu" << endl;
+    current_queue:{
+        curque.display();
+        cout << "0. Back to main menu" << endl;
 
-    cout << "Enter your choiche..." << endl;
-    cin >> c;
+        cout << "Enter your choiche..." << endl;
+        cin >> c;
 
-    switch(c){
-        case 0:
-        goto main_menu; break;
+        switch(c){
+            case 0:
+            goto main_menu; break;
+        }
+        
+        curque.access(c);
     }
 }

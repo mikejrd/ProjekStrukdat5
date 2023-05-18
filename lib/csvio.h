@@ -30,7 +30,7 @@ string get_csv_column(istringstream & in)
     return col;
 }
 
-void load(Queue queue, string name){
+void load(Queue& queue, string name){
     string playlist_name = "..\\videofiles\\"+ name +".csv";
     fstream in (playlist_name, ios::in);
     string line;
@@ -62,8 +62,7 @@ void load(Queue queue, string name){
         comments = stoi(col);
 
         Video temp(title, desc, cat, tags, duration, date, views, likes, dislikes, comments);
-        Node node(temp);
-        Node* n = &node;
+        Node* n = new Node(temp);
         
         queue.insert(n);
     }

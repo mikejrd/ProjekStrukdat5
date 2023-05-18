@@ -24,12 +24,12 @@ class Queue{
             end = NULL;
         }
         void display(){
-            cout << "a" << endl;
             int i = 1;
             current = begin;
-            while(current->next!=NULL){
-                cout << i << ". " << current->video.get_title();
+            while(current!=NULL){
+                cout << i << ". " << current->video.get_title() << endl;
                 i++;
+                current = current->next;
             }
         }
         void next(){
@@ -43,14 +43,16 @@ class Queue{
             }
         }
         void access(int num){
+            current = begin;
             int i = 1;
-            while(current->next!=NULL || i != num){
+            while(current!=NULL){
+                if(i==num){
+                    current->play();
+                }
                 current = current->next;
                 i++;
             }
-            if(i==num){
-                current->play();
-            }
+            
         }
         void del(int i){
 
@@ -68,7 +70,7 @@ class Queue{
             // n->play();
 
         }
-        void move(){
+        void move(){ 
             
         }
         
