@@ -33,7 +33,7 @@ int main(){
         cout << "2. Browse Playlists" << endl;
         cout << "3. Browse History" << endl;
         cout << "4. Exit" << endl << endl;
-        cout << "Enter your choiche..." << endl;
+        cout << "Enter your choice..." << endl;
         cin >> c;
 
         switch(c){
@@ -56,7 +56,7 @@ int main(){
         curque.display();
         cout << "0. Back to main menu" << endl;
 
-        cout << "Enter your choiche..." << endl;
+        cout << "Enter your choice..." << endl;
         cin >> c;
 
         switch(c){
