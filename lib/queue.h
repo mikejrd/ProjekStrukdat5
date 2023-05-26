@@ -7,16 +7,7 @@ class Queue{
         Node* begin;
         Node* current;
         Node* end;
-        bool checknext(){
-            if(current->next!=NULL){
-                return true;
-            }
-        }
-        bool checkprev(){
-            if(current->prev!=NULL){
-                return true;
-            }
-        }
+        
     public:
         Queue(){
             begin = NULL;
@@ -32,26 +23,30 @@ class Queue{
                 current = current->next;
             }
         }
-        void next(){
-            if(checknext()){
+        Node next(){
+            if(current->checknext()){
                 current = current->next;
             }
+            return *current;
         }
-        void prev(){
-            if(checkprev()){
+        Node prev(){
+            if(current->checkprev()){
                 current = current->prev;
             }
+            return *current;
         }
-        void access(int num){
+        Node access(int num){
             current = begin;
             int i = 1;
             while(current!=NULL){
                 if(i==num){
-                    current->play();
+                    return *current;
                 }
                 current = current->next;
                 i++;
             }
+            Node *n = new Node();
+            return *n;
             
         }
         void del(int i){
