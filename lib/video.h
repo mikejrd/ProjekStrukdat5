@@ -2,42 +2,12 @@
 #include<vector>
 using namespace std;
 
-// class Duration{
-//     public:
-//         Duration(){
-//             hours = "";
-//             minutes = "";
-//             seconds = "";
-//             duration = 0;
-//         }
-//         string hours;
-//         string minutes;
-//         string seconds;
-//         int duration;
-// };
-
-// class Date{
-//     public:
-//         Date(){
-//             date = 0;
-//             month = 0;
-//             year = 0;
-//         }
-//         int date;
-//         int month;
-//         int year;
-//         string date;
-// };
-
 class Video {
     private:
         string title;
         string desc;
         string cat;
         string tags, duration, date;
-        // vector<string> tags;
-        // Duration duration;
-        // Date date;
         int views;
         int likes;
         int dislikes;
@@ -74,15 +44,15 @@ class Video {
         string get_cat(){
             return cat;
         }
-        // vector<string> get_tags(){
-        //     return tags;
-        // }
-        // Duration get_dur(){
-        //     return duration;
-        // }
-        // Date get_date(){
-        //     return date;
-        // }
+        string get_tags(){
+            return tags;
+        }
+        string get_dur(){
+            return duration;
+        }
+        string get_date(){
+            return date;
+        }
         int get_views(){
             return views;
         }
