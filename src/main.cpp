@@ -47,16 +47,27 @@ int main(){
             // goto browse_playlist; break;
             case 3:
             cout << "============================" << endl;
-            history.showHistory();
+            cout << "Your current history: " << endl;
+            history.showHistory();           
             cout << "============================" << endl;
-            cout << "1. Back to main menu" << endl;
-            switch (c){
-            case 1:
-            goto main_menu; break;
+            cout << "0. Back to main menu" << endl;
+            if (!history.is_empty())
+            {
+            cout << "1. Clear history" << endl;
             }
+            
+            cout << "Enter your choice..." << endl;
+            cin >> c;
+                switch(c){
+                    case 0:
+                    goto main_menu; break;
+                    case 1:
+                    history.clearHistory();
+                    goto main_menu; break;
+
+                }
         }
     }
-
     // browse_playlist:{
     //     for (const auto & entry : fs::directory_iterator())
     //     std::cout << entry.path() << std::endl;
@@ -80,6 +91,7 @@ int main(){
 
     current_node:{
         curnode.play(history);
+        history.push(curnode.video.get_title());
         curnode.display();
         cout << "0. Back to main menu" << endl;
         cout << "Enter your choice..." << endl;

@@ -8,6 +8,7 @@ class Node{
         Video video;
         Node* prev;
         Node* next;
+        stackHistory history;
         Node(){
             prev = NULL;
             next = NULL;
@@ -34,6 +35,7 @@ class Node{
                 return;
             }
             cout << "Playing " << video.get_title() << "..." << endl;
+            h.push(video.get_title());
             cout << "Finished playing " << video.get_title() << "." << endl;
             // h.push(video.get_title());
         }

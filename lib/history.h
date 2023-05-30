@@ -1,50 +1,63 @@
-// bikin stack isinya history video yg di play
 #include <iostream>
 #include <stack>
 #include <string>
 using namespace std;
 
-class stackHistory{
-    private:
-        int top;
-        int size;
-        string *arr;
-        
-    public:
-    stackHistory(){
-        top = -1;
+class stackHistory {
+private:
+    int size;
+    stack<string> history;
+
+public:
+    stackHistory() {
         size = 0;
-        arr = new string[size];
     }
-    void push(string s){
-        top++;
+
+    void push(const string& s) {
+        history.push(s);
         size++;
-        arr[top] = s;
     }
-    void pop(){
-        top--;
-        size--;
-    }
-    string get_top(){
-        return arr[top];
-    }
-    bool is_empty(){
-        if(top == -1){
-            return true;
-        }
-        else{
-            return false;
+
+    void pop() {
+        if (!history.empty()) {
+            history.pop();
+            size--;
         }
     }
-    void showHistory(){
-        if (is_empty())
-        {
+
+    string get_top() {
+        if (!history.empty()) {
+            return history.top();
+        }
+        return "";
+    }
+
+    bool is_empty() {
+        return history.empty();
+    }
+
+    void showHistory() {
+        if (is_empty()) {
             cout << "History is empty" << endl;
         }
-        else{
-            for(int i = 0; i < size; i++){
-                cout << i+1 << ". " << arr[i] << endl;
+        else {
+            stack<string> tempStack = history;
+            int count = 1;
+            while (!tempStack.empty()) {
+                cout << count << ". " << tempStack.top() << endl;
+                tempStack.pop();
+                count++;
             }
         }
     }
+
+    void clearHistory() {
+        while (!history.empty()) {
+            history.pop();
+        }
+        size = 0;
+        cout << "**History has been cleared**" << endl;
+    }
 };
+
+
