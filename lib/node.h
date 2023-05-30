@@ -28,7 +28,7 @@ class Node{
                 return true;
             }
         }
-        void play(stackHistory h){
+        void play(stackHistory &h){
             if(video.get_title() ==""){
                 cout << "Video not found..." << endl;
                 free(this);
@@ -37,7 +37,6 @@ class Node{
             cout << "Playing " << video.get_title() << "..." << endl;
             h.push(video.get_title());
             cout << "Finished playing " << video.get_title() << "." << endl;
-            // h.push(video.get_title());
         }
         void display(){
             if(checkprev()){

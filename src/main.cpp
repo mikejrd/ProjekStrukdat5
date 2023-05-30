@@ -107,7 +107,7 @@ int main(){
     }
 
     current_node:{
-        history.push(curnode.video.get_title());
+        curnode.play(history);
         curnode.display();
         cout << "=========================================" << endl;
         cout << "0. Back to main menu" << endl << endl;
