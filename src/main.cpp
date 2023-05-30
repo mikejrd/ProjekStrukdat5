@@ -1,14 +1,9 @@
 #include"../lib/csvio.h"
-// #include"../lib/util.h"
 #include<iostream>
 using namespace std;
 
 
 int main(){
-    //all
-    map<string, Video> all_unique_video;
-    Queue all_videos;
-
     //current
     Queue curque;
     Node curnode;
@@ -80,6 +75,7 @@ int main(){
         cout << "=========================================" << endl << endl;
 
         cout << "0. Back to main menu" << endl;
+        cout << "99. Edit Playlist" << endl;
 
         cout << "Enter your choiche..." << endl;
         cin >> c;
@@ -135,18 +131,27 @@ int main(){
         cout << "0. Back to main menu" << endl;
         cout << "Enter your choice..." << endl;
         cin >> c;
+        system("cls");
         switch(c){
             case 1: 
             cout << "Current playlist" << endl;
             curque.display();
             add_to_queue(curque);
             save(curque, curquen);
+            cout << "Current playlist" << endl;
+            curque.display();
             goto edit; break;
             case 2: 
             cout << "Current playlist" << endl;
             curque.display();
-            curque.move(2, 3);
+            cout << endl << "Move the video of index: ";
+            cin >> index;
+            cout << "to index: ";
+            cin >> c;
+            curque.moves(index, c);
             save(curque, curquen);
+            cout << "Current playlist" << endl;
+            curque.display();
             goto edit; break;
             case 3:
             cout << "Current playlist" << endl;
@@ -154,10 +159,10 @@ int main(){
             cin >> index;
             curque.del(index);
             save(curque, curquen);
+            cout << "Current playlist" << endl;
+            curque.display();
             case 0:
             goto main_menu; break;
         }
     }
-    
-    
 }

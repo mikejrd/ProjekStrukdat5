@@ -58,16 +58,22 @@ class Queue{
                     if(current->prev == NULL){
                         current->next->prev = NULL;
                         free(current);
+                        
+                    cout << "Successfully deleted video" << endl;
                         return;
                     }
                     if(current->next == NULL){
                         current->prev->next = NULL;
                         free(current);
+                        
+                    cout << "Successfully deleted video" << endl;
                         return;
                     }
                     current->next->prev = current->prev;
                     current->prev->next = current->next;
                     free(current);
+                    
+                    cout << "Successfully deleted video" << endl;
                     return;
                 }
                 current = current->next;
@@ -86,9 +92,60 @@ class Queue{
             }
 
         }
-        void move(int i, int j){ 
-            Node temp;
-            while(0);
+
+        void moves(int j, int k){
+            current = begin;
+            int i = 1;
+            Node *move, *temp;
+            
+            while(current!=NULL){
+                if(i==j){
+                    move = current;
+                    cout << move << " " << current;
+                    cout << move->video.get_title() << endl;
+                    if((move->prev == NULL) && (move->next == NULL)){
+                        cout << "Error. There's only 1 video in the playlist";
+                    }else if(move->prev == NULL){
+                        cout << "2" << endl;
+                        move->next->prev = NULL;
+                    }else if(move->next == NULL){
+                        cout << "3" << endl;
+                        move->prev->next = NULL;
+                    }else{
+                        cout << "4" << endl;
+                        move->next->prev = move->prev;
+                        move->prev->next = move->next;
+                    }
+                    break;
+                }
+                current = current->next;
+                i++;
+            }
+            if(current==NULL){
+                cout << "Video not found" << endl;
+                return;
+            }
+            cout << move << " " << current;
+            cout << move->video.get_title() << endl;
+
+            current = begin;
+            i=1;
+
+            while(current!=NULL){
+                if(i==k){
+                    current->prev->next = move;
+                    move->prev = current->prev;
+                    move->next = current;
+                    current->prev = move;
+                    cout << "Successfully moved video" << endl;
+                    break;
+                }
+                current = current->next;
+                i++;
+            }
+            if(current==NULL){
+                cout << "Video not found" << endl;
+            }
         }
 
         void clear(){
@@ -103,5 +160,4 @@ class Queue{
             current = NULL;
             end = NULL;
         }
-        
 };
