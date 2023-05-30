@@ -101,18 +101,13 @@ class Queue{
             while(current!=NULL){
                 if(i==j){
                     move = current;
-                    cout << move << " " << current;
-                    cout << move->video.get_title() << endl;
                     if((move->prev == NULL) && (move->next == NULL)){
                         cout << "Error. There's only 1 video in the playlist";
                     }else if(move->prev == NULL){
-                        cout << "2" << endl;
                         move->next->prev = NULL;
                     }else if(move->next == NULL){
-                        cout << "3" << endl;
                         move->prev->next = NULL;
                     }else{
-                        cout << "4" << endl;
                         move->next->prev = move->prev;
                         move->prev->next = move->next;
                     }
@@ -125,8 +120,6 @@ class Queue{
                 cout << "Video not found" << endl;
                 return;
             }
-            cout << move << " " << current;
-            cout << move->video.get_title() << endl;
 
             current = begin;
             i=1;
