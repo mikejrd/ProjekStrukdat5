@@ -38,7 +38,8 @@ public:
 
     void showHistory() {
         if (is_empty()) {
-            cout << "History is empty" << endl;
+            cout << "      History is empty" << endl;
+            cout << "  let's watch some videos!" << endl << endl << endl;
         }
         else {
             stack<string> tempStack = history;
@@ -56,7 +57,7 @@ public:
             history.pop();
         }
         size = 0;
-        cout << "**History has been cleared**" << endl;
+        cout << "**History has been cleared**" << endl << endl << endl;
     }
 };
 
